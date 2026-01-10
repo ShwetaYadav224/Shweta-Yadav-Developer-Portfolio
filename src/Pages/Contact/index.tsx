@@ -17,10 +17,10 @@ function Contact() {
     <section className="w-full bg-white dark:bg-gray-950 min-h-screen">
       {/* Contact Section */}
       <div className="relative w-full pt-20 sm:pt-24 lg:pt-32 pb-6 sm:pb-10 lg:pb-16 overflow-hidden">
-        {/* Subtle Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.08]">
-          <div className="absolute top-10 left-10 w-32 sm:w-48 h-32 sm:h-48 bg-gray-900 dark:bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-40 sm:w-64 h-40 sm:h-64 bg-gray-800 dark:bg-gray-200 rounded-full blur-3xl"></div>
+        {/* Subtle Background Pattern - Hidden in dark mode */}
+        <div className="absolute inset-0 opacity-[0.03] dark:hidden">
+          <div className="absolute top-10 left-10 w-32 sm:w-48 h-32 sm:h-48 bg-gray-900 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-40 sm:w-64 h-40 sm:h-64 bg-gray-800 rounded-full blur-3xl"></div>
         </div>
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 w-full">
@@ -49,7 +49,7 @@ function Contact() {
               {/* Contact Info Cards */}
               {/* Mobile: Side by side | Desktop: Stacked */}
               <div className="grid grid-cols-2 lg:grid-cols-1 gap-3 lg:gap-4 mb-6 lg:mb-0">
-                <a href="mailto:shweta2025y@gmail.com" className="flex flex-col lg:flex-row items-center lg:items-center gap-2 lg:gap-4 p-3 sm:p-4 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-xl border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 transition-colors text-center lg:text-left">
+                <a href="mailto:shweta2025y@gmail.com" className="flex flex-col lg:flex-row items-center lg:items-center gap-2 lg:gap-4 p-3 sm:p-4 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-xl border border-gray-200 dark:border-white/50 hover:border-gray-300 dark:hover:border-white transition-colors text-center lg:text-left">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-lg bg-gray-100 dark:bg-white/10 flex items-center justify-center shrink-0">
                     <svg className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-gray-700 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -61,7 +61,7 @@ function Contact() {
                   </div>
                 </a>
 
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex flex-col lg:flex-row items-center lg:items-center gap-2 lg:gap-4 p-3 sm:p-4 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-xl border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 transition-colors text-center lg:text-left">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex flex-col lg:flex-row items-center lg:items-center gap-2 lg:gap-4 p-3 sm:p-4 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-xl border border-gray-200 dark:border-white/50 hover:border-gray-300 dark:hover:border-white transition-colors text-center lg:text-left">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-lg bg-gray-100 dark:bg-white/10 flex items-center justify-center shrink-0">
                     <svg className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-gray-700 dark:text-gray-200" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -76,7 +76,7 @@ function Contact() {
             </div>
 
             {/* Right Side - Contact Form */}
-            <div className="p-4 sm:p-6 lg:p-8 bg-gray-50 dark:bg-white/5 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-white/10">
+            <div className="p-4 sm:p-6 lg:p-8 bg-gray-50 dark:bg-white/5 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-white/50">
               <h2 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 dark:text-white mb-4 lg:mb-6">Send a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 lg:space-y-5">
                 {/* Name and Email - Stack on mobile, side by side on sm+ */}

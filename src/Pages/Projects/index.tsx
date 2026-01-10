@@ -7,11 +7,11 @@ function Projects() {
     <section className="w-full bg-white dark:bg-gray-950">
       {/* Hero Header - Full Screen */}
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
-        {/* Subtle Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.08]">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-gray-900 dark:bg-white rounded-full blur-3xl"></div>
-          <div className="absolute top-40 right-20 w-96 h-96 bg-gray-800 dark:bg-gray-200 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-1/2 w-80 h-80 bg-gray-700 dark:bg-gray-300 rounded-full blur-3xl"></div>
+        {/* Subtle Background Pattern - Hidden in dark mode */}
+        <div className="absolute inset-0 opacity-[0.03] dark:hidden">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-gray-900 rounded-full blur-3xl"></div>
+          <div className="absolute top-40 right-20 w-96 h-96 bg-gray-800 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-1/2 w-80 h-80 bg-gray-700 rounded-full blur-3xl"></div>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 w-full">
@@ -32,15 +32,15 @@ function Projects() {
 
             <div className="grid grid-cols-3 gap-3 sm:gap-6 mt-8 sm:mt-12">
               {/* Stat Cards - Matching About Section */}
-              <div className="p-3 sm:p-6 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-2xl border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 transition-colors">
+              <div className="p-3 sm:p-6 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-2xl border border-gray-200 dark:border-white/50 hover:border-gray-300 dark:hover:border-white transition-colors">
                 <p className="text-2xl sm:text-4xl font-bold text-gray-900 dark:text-white">{projects.length}</p>
                 <p className="text-xs sm:text-base text-gray-600 dark:text-gray-400 mt-1 sm:mt-2">Total Projects</p>
               </div>
-              <div className="p-3 sm:p-6 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-2xl border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 transition-colors">
+              <div className="p-3 sm:p-6 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-2xl border border-gray-200 dark:border-white/50 hover:border-gray-300 dark:hover:border-white transition-colors">
                 <p className="text-2xl sm:text-4xl font-bold text-gray-900 dark:text-white">5+</p>
                 <p className="text-xs sm:text-base text-gray-600 dark:text-gray-400 mt-1 sm:mt-2">Technologies</p>
               </div>
-              <div className="p-3 sm:p-6 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-2xl border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 transition-colors">
+              <div className="p-3 sm:p-6 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-2xl border border-gray-200 dark:border-white/50 hover:border-gray-300 dark:hover:border-white transition-colors">
                 <p className="text-2xl sm:text-4xl font-bold text-gray-900 dark:text-white">100%</p>
                 <p className="text-xs sm:text-base text-gray-600 dark:text-gray-400 mt-1 sm:mt-2">Satisfaction</p>
               </div>
@@ -150,7 +150,7 @@ function Projects() {
                         {project.technologies.slice(0, 4).map((tech, i) => (
                           <span
                             key={i}
-                            className="px-3 py-1 text-xs font-medium bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 rounded-full border border-gray-200 dark:border-white/10"
+                            className="px-3 py-1 text-xs font-medium bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 rounded-full border border-gray-200 dark:border-white/50"
                           >
                             {tech}
                           </span>
