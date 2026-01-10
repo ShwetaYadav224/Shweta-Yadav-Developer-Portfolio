@@ -29,10 +29,10 @@ function Navbar() {
 
       {/* Logo & Theme - Floating Top Right (No Navbar Bar) */}
       <div className="fixed top-4 right-6 z-50 flex items-center gap-3">
-        <Link to="/" className="text-lg font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+        <Link to="/" className="text-lg font-bold text-[#0d161b] dark:text-white hover:text-[#0d161b]/70 dark:hover:text-gray-300 transition-colors">
           Shweta Yadav
         </Link>
-        <div className="w-10 h-10 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center">
+        <div className="w-10 h-10 rounded-full bg-white dark:bg-[#152228] shadow-lg flex items-center justify-center">
           <ThemeToggle />
         </div>
       </div>
@@ -72,8 +72,8 @@ function Navbar() {
                   flex items-center justify-center text-center
                   ${
                     isActive(link.path)
-                      ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900'
-                      : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
+                      ? 'bg-[#0d161b] dark:bg-white text-white dark:text-[#0d161b]'
+                      : 'bg-white dark:bg-[#152228] text-[#0d161b] dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#0d161b]'
                   }`}
               >
                 {link.name}
@@ -85,15 +85,15 @@ function Navbar() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={`w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition-all duration-300
-              ${isOpen ? 'bg-gray-700 dark:bg-gray-600 rotate-45' : 'bg-gray-900 dark:bg-white'}
+              ${isOpen ? 'bg-[#0d161b]/80 dark:bg-gray-600 rotate-45' : 'bg-[#0d161b] dark:bg-white'}
             `}
             aria-label="Toggle menu"
           >
             <div className="grid grid-cols-2 gap-1.5">
-              <span className={`w-2 h-2 rounded-full ${isOpen ? 'bg-white' : 'bg-white dark:bg-gray-900'}`} />
-              <span className={`w-2 h-2 rounded-full ${isOpen ? 'bg-white' : 'bg-white dark:bg-gray-900'}`} />
-              <span className={`w-2 h-2 rounded-full ${isOpen ? 'bg-white' : 'bg-white dark:bg-gray-900'}`} />
-              <span className={`w-2 h-2 rounded-full ${isOpen ? 'bg-white' : 'bg-white dark:bg-gray-900'}`} />
+              <span className={`w-2 h-2 rounded-full ${isOpen ? 'bg-white' : 'bg-white dark:bg-[#0d161b]'}`} />
+              <span className={`w-2 h-2 rounded-full ${isOpen ? 'bg-white' : 'bg-white dark:bg-[#0d161b]'}`} />
+              <span className={`w-2 h-2 rounded-full ${isOpen ? 'bg-white' : 'bg-white dark:bg-[#0d161b]'}`} />
+              <span className={`w-2 h-2 rounded-full ${isOpen ? 'bg-white' : 'bg-white dark:bg-[#0d161b]'}`} />
             </div>
           </button>
         </div>

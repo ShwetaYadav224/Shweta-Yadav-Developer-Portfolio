@@ -4,7 +4,7 @@ function Projects() {
   const { projects, loading, error } = useFetchProjects();
 
   return (
-    <section className="w-full bg-white dark:bg-gray-950">
+    <section className="w-full bg-white dark:bg-[#0d161b]">
       {/* Hero Header - Full Screen */}
       <div className="relative min-h-screen flex flex-col justify-center overflow-hidden">
         {/* Subtle Background Pattern - Hidden in dark mode */}
@@ -16,33 +16,33 @@ function Projects() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 w-full">
           {/* Section Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-900 rounded-full mb-4 sm:mb-6 border border-gray-100 dark:border-gray-800 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-[#152228] rounded-full mb-4 sm:mb-6 border border-[#0d161b] dark:border-white/30 shadow-sm">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-            <span className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300">Portfolio Showcase</span>
+            <span className="text-xs sm:text-sm font-medium text-[#151f34] dark:text-gray-300">Portfolio Showcase</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#151f34] dark:text-white mb-4 sm:mb-6 leading-tight">
             Featured Projects
           </h1>
 
           <div className="max-w-3xl">
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-[#151f34]/80 dark:text-gray-300 mb-6 sm:mb-8 leading-relaxed">
               Explore my latest work. Each project represents a unique challenge solved with creativity and cutting-edge technology.
             </p>
 
             <div className="grid grid-cols-3 gap-3 sm:gap-6 mt-8 sm:mt-12">
               {/* Stat Cards - Matching About Section */}
-              <div className="p-3 sm:p-6 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-2xl border border-gray-200 dark:border-white/50 hover:border-gray-300 dark:hover:border-white transition-colors">
-                <p className="text-2xl sm:text-4xl font-bold text-gray-900 dark:text-white">{projects.length}</p>
-                <p className="text-xs sm:text-base text-gray-600 dark:text-gray-400 mt-1 sm:mt-2">Total Projects</p>
+              <div className="p-3 sm:p-6 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-2xl border border-[#151f34]/20 dark:border-white/50 hover:border-[#151f34]/40 dark:hover:border-white transition-colors">
+                <p className="text-2xl sm:text-4xl font-bold text-[#151f34] dark:text-white">{projects.length}</p>
+                <p className="text-xs sm:text-base text-[#151f34]/70 dark:text-gray-400 mt-1 sm:mt-2">Total Projects</p>
               </div>
-              <div className="p-3 sm:p-6 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-2xl border border-gray-200 dark:border-white/50 hover:border-gray-300 dark:hover:border-white transition-colors">
-                <p className="text-2xl sm:text-4xl font-bold text-gray-900 dark:text-white">5+</p>
-                <p className="text-xs sm:text-base text-gray-600 dark:text-gray-400 mt-1 sm:mt-2">Technologies</p>
+              <div className="p-3 sm:p-6 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-2xl border border-[#151f34]/20 dark:border-white/50 hover:border-[#151f34]/40 dark:hover:border-white transition-colors">
+                <p className="text-2xl sm:text-4xl font-bold text-[#151f34] dark:text-white">5+</p>
+                <p className="text-xs sm:text-base text-[#151f34]/70 dark:text-gray-400 mt-1 sm:mt-2">Technologies</p>
               </div>
-              <div className="p-3 sm:p-6 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-2xl border border-gray-200 dark:border-white/50 hover:border-gray-300 dark:hover:border-white transition-colors">
-                <p className="text-2xl sm:text-4xl font-bold text-gray-900 dark:text-white">100%</p>
-                <p className="text-xs sm:text-base text-gray-600 dark:text-gray-400 mt-1 sm:mt-2">Satisfaction</p>
+              <div className="p-3 sm:p-6 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-2xl border border-[#151f34]/20 dark:border-white/50 hover:border-[#151f34]/40 dark:hover:border-white transition-colors">
+                <p className="text-2xl sm:text-4xl font-bold text-[#151f34] dark:text-white">100%</p>
+                <p className="text-xs sm:text-base text-[#151f34]/70 dark:text-gray-400 mt-1 sm:mt-2">Satisfaction</p>
               </div>
             </div>
           </div>
