@@ -32,5 +32,5 @@ export const routes = [
     path: '/projects',
     element: <Projects />,
     title: 'Projects'
-  }
+  },
 ]

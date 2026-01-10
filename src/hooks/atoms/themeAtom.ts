@@ -23,7 +23,7 @@ export const themeState = atom<Theme>({
         } else {
           localStorage.setItem('theme', newValue)
         }
-      })
+      })            
     }
   ],
 })
