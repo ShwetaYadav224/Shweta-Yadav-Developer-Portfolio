@@ -14,35 +14,35 @@ function Projects() {
           <div className="absolute bottom-20 left-1/2 w-80 h-80 bg-gray-700 dark:bg-gray-300 rounded-full blur-3xl"></div>
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-20 w-full">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 w-full">
           {/* Section Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-white/10 rounded-full mb-6 border border-gray-200 dark:border-white/20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-900 rounded-full mb-4 sm:mb-6 border border-gray-100 dark:border-gray-800 shadow-sm">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-200">Portfolio Showcase</span>
+            <span className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-300">Portfolio Showcase</span>
           </div>
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight">
             Featured Projects
           </h1>
 
           <div className="max-w-3xl">
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 leading-relaxed">
               Explore my latest work. Each project represents a unique challenge solved with creativity and cutting-edge technology.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            <div className="grid grid-cols-3 gap-3 sm:gap-6 mt-8 sm:mt-12">
               {/* Stat Cards - Matching About Section */}
-              <div className="p-6 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 transition-colors">
-                <p className="text-4xl font-bold text-gray-900 dark:text-white">{projects.length}</p>
-                <p className="text-gray-600 dark:text-gray-400 mt-2">Total Projects</p>
+              <div className="p-3 sm:p-6 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-2xl border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 transition-colors">
+                <p className="text-2xl sm:text-4xl font-bold text-gray-900 dark:text-white">{projects.length}</p>
+                <p className="text-xs sm:text-base text-gray-600 dark:text-gray-400 mt-1 sm:mt-2">Total Projects</p>
               </div>
-              <div className="p-6 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 transition-colors">
-                <p className="text-4xl font-bold text-gray-900 dark:text-white">5+</p>
-                <p className="text-gray-600 dark:text-gray-400 mt-2">Technologies</p>
+              <div className="p-3 sm:p-6 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-2xl border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 transition-colors">
+                <p className="text-2xl sm:text-4xl font-bold text-gray-900 dark:text-white">5+</p>
+                <p className="text-xs sm:text-base text-gray-600 dark:text-gray-400 mt-1 sm:mt-2">Technologies</p>
               </div>
-              <div className="p-6 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 transition-colors">
-                <p className="text-4xl font-bold text-gray-900 dark:text-white">100%</p>
-                <p className="text-gray-600 dark:text-gray-400 mt-2">Satisfaction</p>
+              <div className="p-3 sm:p-6 bg-gray-50 dark:bg-white/5 rounded-lg sm:rounded-2xl border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 transition-colors">
+                <p className="text-2xl sm:text-4xl font-bold text-gray-900 dark:text-white">100%</p>
+                <p className="text-xs sm:text-base text-gray-600 dark:text-gray-400 mt-1 sm:mt-2">Satisfaction</p>
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@ function Projects() {
       </div>
 
       {/* Projects Content */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pb-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 pb-16 sm:pb-24">
         {/* Loading State */}
         {loading && (
           <div className="text-center py-32">
@@ -89,13 +89,13 @@ function Projects() {
 
         {/* Projects Grid */}
         {!loading && !error && projects.length > 0 && (
-          <div className="space-y-32">
+          <div className="space-y-16 sm:space-y-24 lg:space-y-32">
             {projects.map((project, index) => (
               <div
                 key={project.id}
                 className="group"
               >
-                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center`}>
+                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-16 items-center`}>
                   {/* Project Image */}
                   <div className={`relative ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                     <div className="relative overflow-hidden rounded-2xl shadow-xl">
@@ -137,8 +137,8 @@ function Projects() {
                     </div>
 
                     {/* Project Number Badge */}
-                    <div className="absolute -top-4 -left-4 w-16 h-16 bg-gray-900 dark:bg-white rounded-xl shadow-lg flex items-center justify-center">
-                      <span className="text-2xl font-bold text-white dark:text-gray-900">{project.number}</span>
+                    <div className="absolute -top-2 -left-2 sm:-top-4 sm:-left-4 w-10 h-10 sm:w-16 sm:h-16 bg-gray-900 dark:bg-white rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center">
+                      <span className="text-lg sm:text-2xl font-bold text-white dark:text-gray-900">{project.number}</span>
                     </div>
                   </div>
 
@@ -164,12 +164,12 @@ function Projects() {
                     )}
 
                     {/* Title */}
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors duration-300">
                       {project.title}
                     </h2>
 
                     {/* Description */}
-                    <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                    <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 leading-relaxed">
                       {project.description}
                     </p>
 
@@ -197,7 +197,7 @@ function Projects() {
                           href={project.demoUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-xl font-medium shadow-lg hover:shadow-xl hover:bg-gray-800 dark:hover:bg-gray-100 transition-all duration-300"
+                          className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg sm:rounded-xl font-medium text-sm sm:text-base shadow-lg hover:shadow-xl hover:bg-gray-800 dark:hover:bg-gray-100 transition-all duration-300"
                         >
                           <span>View Project</span>
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -210,7 +210,7 @@ function Projects() {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-6 py-3 bg-transparent border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white rounded-xl font-medium hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+                          className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-transparent border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white rounded-lg sm:rounded-xl font-medium text-sm sm:text-base hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
                         >
                           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
