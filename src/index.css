@@ -6,8 +6,10 @@
 :root {
   --color-navy: #0d161b;
   --color-navy-light: #152228;
+  --color-royal-blue: #1e4b8e;
   font-family: "Playfair Display", Georgia, "Times New Roman", serif;
   line-height: 1.6;
+  color: var(--color-royal-blue);
 }
 
 /* Heading styles - elegant serif aesthetic */
@@ -39,10 +41,12 @@ html {
 /* Dark mode background color */
 .dark {
   background-color: var(--color-navy);
+  color: #ffffff;
 }
 
 /* Tailwind custom utilities for the navy color */
 @theme {
   --color-navy: #0d161b;
   --color-navy-light: #152228;
+  --color-royal-blue: #1e4b8e;
 }
