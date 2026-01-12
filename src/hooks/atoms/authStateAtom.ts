@@ -1,25 +1,27 @@
 import { atom } from "recoil";
 
 interface AuthStateType {
-   isAuthenticated: boolean;
+  isAuthenticated: boolean;
   userEmail: string | null;
   uid: string | null;
+  isLoading: boolean;
 }
 
-const getInitialAuthState = (): AuthStateType => {
-  const savedState = localStorage.getItem("authState");
-  return savedState
-    ? JSON.parse(savedState)
-    : { isAuthenticated: false, userEmail: null, uid: null };
-};
 export const authStateAtom = atom<AuthStateType>({
   key: "authState",
-  default: getInitialAuthState(),
+  default: {
+    isAuthenticated: false,
+    userEmail: null,
+    uid: null,
+    isLoading: true,
+  },
 });
-export const saveAuthState = (state: AuthStateType) => {
-  localStorage.setItem("authState", JSON.stringify(state));
+
+export const saveAuthState = (_state: Omit<AuthStateType, "isLoading">) => {
+  // Persistence is now handled by Firebase Auth listener in App.tsx
+  // This function is kept for backward compatibility but does nothing insecure.
 };
 
 export const clearAuthState = () => {
-  localStorage.removeItem("authState");
+  // Handled by Firebase Auth signOut
 };

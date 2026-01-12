@@ -9,6 +9,11 @@ import { authStateAtom } from "../../hooks/atoms/authStateAtom";
 export default function PublicRoute() {
   const auth = useRecoilValue(authStateAtom);
   
+  // If authentication state is still loading, show nothing
+  if (auth.isLoading) {
+      return null;
+  }
+
   // If user is authenticated, redirect to dashboard
   if (auth.isAuthenticated) {
     return <Navigate to="/admin/dashboard" replace />;

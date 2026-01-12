@@ -9,6 +9,11 @@ import { authStateAtom } from "../../hooks/atoms/authStateAtom";
 export default function ProtectedRoute() {
   const auth = useRecoilValue(authStateAtom);
   
+  // If authentication state is still loading, show nothing or a spinner
+  if (auth.isLoading) {
+    return <div className="flex items-center justify-center min-h-screen">Loading...</div>;
+  }
+
   // If user is NOT authenticated, redirect to login
   if (!auth.isAuthenticated) {
     return <Navigate to="/admin/login" replace />;
