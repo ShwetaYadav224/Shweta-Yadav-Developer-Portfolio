@@ -16,7 +16,7 @@ const Dashboard = () => {
 
   const handleLogout = () => {
     clearAuthState();
-    setAuth({ isAuthenticated: false, userEmail: null, uid: null });
+    setAuth({ isAuthenticated: false, userEmail: null, uid: null, isLoading: false });
     navigate("/admin/login");
   };
 

@@ -17,7 +17,7 @@ const logIn=async()=>{
     try{
         const userCredential=await signInWithEmail({email,password});
         const user=userCredential.user;
-        setAuth({isAuthenticated:true,userEmail:user.email,uid:user.uid});
+        setAuth({isAuthenticated:true,userEmail:user.email,uid:user.uid,isLoading:false});
         saveAuthState({isAuthenticated:true,userEmail:email,uid:user.uid});
         navigate("/admin/dashboard");
     }catch(e){
