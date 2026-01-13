@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useProjects } from "../../../hooks/dashboard-hooks/useProjects";
 import { useNavigate } from "react-router-dom";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import { authStateAtom, clearAuthState } from "../../../hooks/atoms/authStateAtom";
+import { useAuth } from "../../../hooks/auth/useAuth";
 import type { Project } from "../../../types/project";
 import { ProjectsTable, ProjectModal } from "./Projects";
 
@@ -11,12 +10,10 @@ const Dashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingProject, setEditingProject] = useState<Project | null>(null);
   const navigate = useNavigate();
-  const authState = useRecoilValue(authStateAtom);
-  const setAuth = useSetRecoilState(authStateAtom);
+  const { user, logout } = useAuth();
 
-  const handleLogout = () => {
-    clearAuthState();
-    setAuth({ isAuthenticated: false, userEmail: null, uid: null, isLoading: false });
+  const handleLogout = async () => {
+    await logout();
     navigate("/admin/login");
   };
 
@@ -63,7 +60,7 @@ const Dashboard = () => {
               Admin Dashboard
             </h1>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              Welcome, {authState.userEmail}
+              Welcome, {user?.email}
             </p>
           </div>
           <button

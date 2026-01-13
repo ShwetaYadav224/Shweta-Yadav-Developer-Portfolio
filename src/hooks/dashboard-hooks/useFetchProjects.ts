@@ -3,10 +3,6 @@ import { getFirestore, collection, getDocs, orderBy, query } from "firebase/fire
 import app from "../Firebase/config";
 import type { Project } from "../../types/project";
 
-/**
- * Hook to fetch projects from Firestore for the public portfolio.
- * This is a read-only hook (no add/update/delete operations).
- */
 export const useFetchProjects = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);

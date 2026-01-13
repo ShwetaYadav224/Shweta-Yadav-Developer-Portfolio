@@ -1,4 +1,5 @@
-import { useFirebaseApp } from "./useFirebaseApp";
+import { useFirebaseApp} from "./useFirebaseApp";
+
 import { getAuth } from "firebase/auth";
 import { useMemo } from "react";
 

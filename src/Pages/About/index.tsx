@@ -44,8 +44,17 @@ function About() {
       <div>
 
       </div>
-      
+      <div className="p-3 sm:p-6 bg-gray-50 dark:bg-[#0d161b] transition-colors">
+        <div className="flex flex-col gap-6">
+          <h2 className="text-2xl sm:text-2xl font-bold text-[#0d161b] dark:text-white">Education</h2>
+          <div className="p-4 bg-gray-50 dark:bg-white/5 rounded-sm sm:rounded-2xl border border-[#0d161b]/20 dark:border-white/50 hover:border-[#0d161b]/40 dark:hover:border-white transition-colors">
+
+          </div>
+
+        </div>
+      </div>
     </section>
+    
   )
 }
 

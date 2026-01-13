@@ -1,23 +1,23 @@
 import { useFirebaseAuth } from "../Firebase/useFirebaseAuth";
 import { useCallback } from "react";
-import { signInWithEmailAndPassword, updatePassword, useDeviceLanguage } from "firebase/auth";
+import { signInWithEmailAndPassword, updatePassword, useDeviceLanguage } from "firebase/auth"
 
 const useLogIn = () => {
-  const auth = useFirebaseAuth();
+  const auth = useFirebaseAuth()
 
-  useDeviceLanguage(auth);
+  useDeviceLanguage(auth)
 
   const signInWithEmail = useCallback(
     ({ email, password }: { email: string; password: string }) => {
-      return signInWithEmailAndPassword(auth, email, password);
+      return signInWithEmailAndPassword(auth, email, password)
     },
     [auth]
-  );
+  )
 
   const resetPassword = useCallback(
     ({ password }: { password: string }) => {
       if (auth.currentUser) {
-        return updatePassword(auth.currentUser, password);
+        return updatePassword(auth.currentUser, password)
       }
       return null;
     },
