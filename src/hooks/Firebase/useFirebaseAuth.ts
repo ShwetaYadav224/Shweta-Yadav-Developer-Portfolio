@@ -8,3 +8,4 @@ export const useFirebaseAuth = () => {
 
   return useMemo(() => getAuth(app), [app]);
 };
+

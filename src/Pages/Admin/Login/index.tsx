@@ -1,13 +1,11 @@
 import { useState } from "react";
 import useLogIn from "../../../hooks/auth/useLogIn";
 import { useNavigate } from "react-router-dom";
-
 const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const navigate = useNavigate();
   const { signInWithEmail } = useLogIn(); 
-
   const logIn = async () => {
     if (!email || !password) {
       alert("Please enter email and password");
@@ -15,13 +13,11 @@ const Login = () => {
     }
     try {
       await signInWithEmail({ email, password });
-      // Firebase auth state change will be detected by AuthContext automatically
       navigate("/admin/dashboard");
     } catch (e) {
       alert("enter correct email and password");
     }
   };
-
   return (
     <div>
       <div className="flex-1">
