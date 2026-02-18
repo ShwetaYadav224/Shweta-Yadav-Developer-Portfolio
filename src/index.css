@@ -49,4 +49,36 @@ html {
   --color-navy: #0d161b;
   --color-navy-light: #152228;
   --color-royal-blue: #1e4b8e;
+  
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e4b8e;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0d161b;
+}
+
+.title-font {
+  font-family: "Playfair Display", serif;
+  letter-spacing: 0.05em;
 }
