@@ -2,83 +2,137 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Custom color theme */
+/*
+  shadcn-style "neutral" palette (matches MagicUI portfolio).
+  HSL channel triplets consumed via `hsl(var(--*))` in @theme inline below.
+*/
 :root {
-  --color-navy: #0d161b;
-  --color-navy-light: #152228;
-  --color-royal-blue: #1e4b8e;
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-  line-height: 1.6;
-  color: var(--color-royal-blue);
+  --background: 40 30% 97%;
+  --foreground: 240 10% 3.9%;
+
+  --card: 40 30% 99%;
+  --card-foreground: 240 10% 3.9%;
+
+  --popover: 40 30% 99%;
+  --popover-foreground: 240 10% 3.9%;
+
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+
+  --secondary: 40 20% 95%;
+  --secondary-foreground: 240 5.9% 10%;
+
+  --muted: 40 20% 95%;
+  --muted-foreground: 40 5% 42%;
+
+  --accent: 40 20% 95%;
+  --accent-foreground: 240 5.9% 10%;
+
+  --border: 40 18% 90%;
+  --input: 40 18% 90%;
+  --ring: 240 10% 3.9%;
+
+  --radius: 0.75rem;
 }
 
-/* Heading styles - elegant serif aesthetic */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-  letter-spacing: -0.02em;
-  font-weight: 600;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body,
-#root {
-  min-height: 100vh;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* Dark mode background color */
 .dark {
-  background-color: var(--color-navy);
-  color: #ffffff;
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+
+  --primary: 0 0% 98%;
+  --primary-foreground: 240 5.9% 10%;
+
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 240 4.9% 83.9%;
 }
 
-/* Tailwind custom utilities for the navy color */
-@theme {
-  --color-navy: #0d161b;
-  --color-navy-light: #152228;
-  --color-royal-blue: #1e4b8e;
-  
-  @keyframes fade-in {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
   }
 }
 
-.animate-fade-in {
-  animation: fade-in 0.8s ease-out forwards;
-}
-
-/* Custom scrollbar */
+/* Slim, themed scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
+  height: 10px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #1e4b8e;
-  border-radius: 5px;
+  background: hsl(var(--border));
+  border-radius: 9999px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #0d161b;
+  background: hsl(var(--muted-foreground));
 }
 
-.title-font {
-  font-family: "Playfair Display", serif;
-  letter-spacing: 0.05em;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
