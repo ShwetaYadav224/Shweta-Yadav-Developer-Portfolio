@@ -4,17 +4,17 @@ import { contact, profile } from "../config/portfolio";
 
 export function Contact() {
   return (
-    <Section id="contact" label="Contact" title={contact.heading}>
-      <div className="flex flex-col gap-4">
-        <p className="max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+    <Section id="contact" title={contact.heading}>
+      <div className="flex flex-col gap-5">
+        <p className="max-w-3xl text-[14px] leading-7 text-muted-foreground sm:text-[15px]">
           {contact.body}
         </p>
         <a
           href={`mailto:${profile.email}`}
-          className="group inline-flex items-center gap-2 text-base font-medium text-foreground underline-offset-4 hover:underline"
+          className="cta-button group inline-flex w-fit items-center gap-2 rounded-full border border-border bg-primary px-6 py-2.5 text-[14px] font-medium text-primary-foreground sm:text-[15px]"
         >
           {profile.email}
-          <FiArrowUpRight className="size-4 transition-transform group-hover:translate-x-px group-hover:-translate-y-px" />
+          <FiArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
       </div>
     </Section>

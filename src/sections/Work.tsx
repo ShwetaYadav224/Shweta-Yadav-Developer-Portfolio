@@ -1,79 +1,62 @@
-import { useState } from "react";
-import { FiChevronDown } from "react-icons/fi";
 import { Section } from "../components/Section";
 import { work } from "../config/portfolio";
 import { Reveal } from "../components/Reveal";
 
 export function Work() {
-  const [open, setOpen] = useState<number | null>(0);
-
   return (
-    <Section id="work" title="Work Experience">
-      <div className="flex flex-col gap-2">
-        {work.map((job, i) => {
-          const isOpen = open === i;
-          return (
-            <Reveal key={job.company} delay={i * 0.05}>
-              <div className="rounded-xl border border-border bg-card transition-colors">
-                <button
-                  type="button"
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  aria-expanded={isOpen}
-                  className="flex w-full items-center gap-4 p-4 text-left"
-                >
-                  <span className="grid size-10 shrink-0 place-items-center rounded-lg border border-border bg-muted text-sm font-semibold text-foreground">
-                    {job.logo}
-                  </span>
-
-                  <span className="flex flex-1 flex-col gap-0.5">
-                    <span className="font-medium text-foreground">
-                      {job.company}
-                    </span>
-                    <span className="text-sm text-muted-foreground">
-                      {job.role}
-                    </span>
-                  </span>
-
-                  <span className="hidden text-xs text-muted-foreground sm:block">
-                    {job.start} — {job.end}
-                  </span>
-
-                  <FiChevronDown
-                    className={`size-4 shrink-0 text-muted-foreground transition-transform duration-300 ${
-                      isOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-
-                <div
-                  className={`grid transition-all duration-300 ease-out ${
-                    isOpen
-                      ? "grid-rows-[1fr] opacity-100"
-                      : "grid-rows-[0fr] opacity-0"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <div className="flex flex-col gap-3 px-4 pb-4 pt-0">
-                      <p className="text-sm leading-relaxed text-muted-foreground">
-                        {job.description}
-                      </p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {job.technologies.map((t) => (
-                          <span
-                            key={t}
-                            className="inline-flex items-center rounded-md border border-border bg-muted/40 px-2 py-0.5 text-xs text-muted-foreground"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+    <Section id="work" title="EXPERIENCE">
+      <div className="flex flex-col gap-10">
+        {work.map((job, i) => (
+          <Reveal key={job.company} delay={i * 0.05}>
+            <article className="flex flex-col gap-4">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex items-center gap-2">
+                  <h3 className="text-[15px] font-bold text-foreground">
+                    {job.company}
+                  </h3>
+                  <span className="text-muted-foreground/40">·</span>
+                  <p className="text-[14px] text-muted-foreground">{job.role}</p>
                 </div>
+
+                <time className="font-mono text-[11px] text-muted-foreground/80">
+                  {job.start} — {job.end}
+                </time>
               </div>
-            </Reveal>
-          );
-        })}
+
+              <div className="flex flex-col gap-3">
+                <p className="text-[13px] leading-relaxed text-muted-foreground sm:text-[14px]">
+                  {job.description}
+                </p>
+
+                <ul className="ml-4 flex list-outside list-disc flex-col gap-1.5 text-[13px] leading-relaxed text-muted-foreground sm:text-[14px]">
+                  <li>
+                    Deliver and maintain features across production products while
+                    contributing to web, mobile, and backend work.
+                  </li>
+                  <li>
+                    Build backend services and application features using Python,
+                    Django, GraphQL, and REST APIs.
+                  </li>
+                  <li>
+                    Develop responsive experiences with React, Next.js, Flutter,
+                    and Bun.
+                  </li>
+                </ul>
+              </div>
+
+              <div className="mt-1 flex flex-wrap gap-2">
+                {job.technologies.map((t) => (
+                  <span
+                    key={t}
+                    className="inline-flex items-center rounded-full bg-muted/50 px-2.5 py-1 text-[11px] font-medium text-muted-foreground"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </article>
+          </Reveal>
+        ))}
       </div>
     </Section>
   );

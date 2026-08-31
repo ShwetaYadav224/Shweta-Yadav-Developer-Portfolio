@@ -37,7 +37,7 @@ function DockButton({
       rel="noreferrer noopener"
       aria-label={label}
       title={label}
-      className="grid size-9 place-items-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+      className="dock-btn grid size-9 place-items-center rounded-full text-muted-foreground hover:bg-muted hover:text-foreground"
     >
       {children}
     </a>
@@ -49,18 +49,18 @@ export function Navbar() {
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50 flex justify-center px-4 pb-4 sm:pb-6">
-      <nav className="pointer-events-auto flex items-center gap-1 rounded-full border border-border bg-card/80 p-1 shadow-lg backdrop-blur-md">
+      <nav className="pointer-events-auto flex items-center gap-1 rounded-full border border-border bg-card/80 p-1.5 shadow-lg shadow-black/5 backdrop-blur-xl dark:shadow-black/20">
         {/* Brand / home */}
         <a
           href="#hero"
           aria-label="Back to top"
           title="Back to top"
-          className="grid size-9 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground transition-transform hover:scale-105"
+          className="dock-btn grid size-9 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground"
         >
           {profile.initials}
         </a>
 
-        <span className="mx-0.5 h-5 w-px bg-border" />
+        <span className="mx-1 h-5 w-px bg-border" />
 
         {/* Socials */}
         {socials.map((s) => {
@@ -72,7 +72,7 @@ export function Navbar() {
           );
         })}
 
-        <span className="mx-0.5 h-5 w-px bg-border" />
+        <span className="mx-1 h-5 w-px bg-border" />
 
         {/* Theme toggle */}
         <button
@@ -80,7 +80,7 @@ export function Navbar() {
           onClick={toggle}
           aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
           title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-          className="grid size-9 place-items-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+          className="dock-btn grid size-9 place-items-center rounded-full text-muted-foreground hover:bg-muted hover:text-foreground"
         >
           {theme === "dark" ? (
             <FiSun className="size-4" />

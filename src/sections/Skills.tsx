@@ -1,63 +1,30 @@
-import type { IconType } from "react-icons";
-import {
-  SiReact,
-  SiNodedotjs,
-  SiExpress,
-  SiJavascript,
-  SiHtml5,
-  SiCss3,
-  SiTailwindcss,
-  SiOpenjdk,
-  SiPython,
-  SiMysql,
-  SiMongodb,
-  SiFirebase,
-  SiGit,
-  SiGithub,
-  SiLinux,
-  SiVite,
-} from "react-icons/si";
-import { FiCode } from "react-icons/fi";
 import { Section } from "../components/Section";
 import { Reveal } from "../components/Reveal";
-import { skills } from "../config/portfolio";
-
-const ICONS: Record<string, IconType> = {
-  "React.js": SiReact,
-  "Node.js": SiNodedotjs,
-  "Express.js": SiExpress,
-  JavaScript: SiJavascript,
-  HTML: SiHtml5,
-  CSS: SiCss3,
-  "Tailwind CSS": SiTailwindcss,
-  Java: SiOpenjdk,
-  Python: SiPython,
-  MySQL: SiMysql,
-  MongoDB: SiMongodb,
-  Firebase: SiFirebase,
-  Git: SiGit,
-  GitHub: SiGithub,
-  Linux: SiLinux,
-  Vite: SiVite,
-};
+import { skillGroups } from "../config/portfolio";
 
 export function Skills() {
   return (
     <Section id="skills" title="Skills">
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-        {skills.map((name, i) => {
-          const Icon = ICONS[name] ?? FiCode;
-          return (
-            <Reveal key={name} delay={i * 0.03}>
-              <div className="flex items-center gap-2.5 rounded-xl border border-border bg-card p-3">
-                <Icon className="size-5 shrink-0 text-muted-foreground" />
-                <span className="text-sm font-medium text-foreground">
-                  {name}
-                </span>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+        {skillGroups.map((group, i) => (
+          <Reveal key={group.label} delay={i * 0.04}>
+            <div className="flex flex-col gap-3">
+              <h3 className="text-[12px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                {group.label}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <span
+                    key={item}
+                    className="skill-pill inline-flex cursor-default items-center rounded-full bg-muted/50 px-3 py-1 text-[12px] text-muted-foreground"
+                  >
+                    {item}
+                  </span>
+                ))}
               </div>
-            </Reveal>
-          );
-        })}
+            </div>
+          </Reveal>
+        ))}
       </div>
     </Section>
   );

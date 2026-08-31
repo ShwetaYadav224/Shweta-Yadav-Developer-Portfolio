@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800&display=swap");
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
@@ -7,7 +8,7 @@
   HSL channel triplets consumed via `hsl(var(--*))` in @theme inline below.
 */
 :root {
-  --background: 40 30% 97%;
+  --background: 0 0% 100%;
   --foreground: 240 10% 3.9%;
 
   --card: 40 30% 99%;
@@ -33,6 +34,10 @@
   --ring: 240 10% 3.9%;
 
   --radius: 0.75rem;
+
+  /* Professional accent for hover highlights */
+  --hover-glow: 220 60% 50%;
+  --hover-bg: 220 20% 97%;
 }
 
 .dark {
@@ -60,6 +65,9 @@
   --border: 240 3.7% 15.9%;
   --input: 240 3.7% 15.9%;
   --ring: 240 4.9% 83.9%;
+
+  --hover-glow: 220 60% 60%;
+  --hover-bg: 220 10% 8%;
 }
 
 @theme inline {
@@ -85,8 +93,10 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
 
-  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: "Inter Tight", "Inter", ui-sans-serif, system-ui,
+    -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
     monospace;
 }
@@ -109,10 +119,116 @@
     text-rendering: optimizeLegibility;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
+
   ::selection {
     background-color: hsl(var(--foreground));
     color: hsl(var(--background));
   }
+}
+
+
+
+/* ─── Minimal project card hover ─── */
+.project-card {
+  border-radius: var(--radius);
+  transition: background-color 0.2s ease;
+}
+
+.project-card:hover {
+  background-color: #f2f2f2;
+}
+
+.dark .project-card:hover {
+  background-color: hsl(240 6% 12%);
+}
+
+/* ─── Hover arrow animation ─── */
+.project-card .hover-arrow {
+  transition: transform 0.25s ease;
+}
+.project-card:hover .hover-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* ─── Skill pill hover ─── */
+.skill-pill {
+  transition:
+    color 0.2s ease;
+}
+
+.skill-pill:hover {
+  color: hsl(var(--foreground));
+}
+
+/* ─── Section heading line grow ─── */
+.section-line {
+  transition: background-color 0.3s ease;
+}
+
+/* ─── Dock button scale ─── */
+.dock-btn {
+  transition:
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.dock-btn:hover {
+  transform: scale(1.15);
+}
+
+/* ─── Timeline connector ─── */
+.timeline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: hsl(var(--border));
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.group:hover .timeline-dot {
+  background: hsl(var(--hover-glow));
+}
+
+/* ─── Contact CTA button ─── */
+.cta-button {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
+}
+
+.cta-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    hsl(var(--foreground) / 0.05) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px -2px hsl(var(--foreground) / 0.12);
+}
+
+.cta-button:hover::after {
+  transform: translateX(100%);
 }
 
 /* Slim, themed scrollbar */
@@ -134,5 +250,15 @@
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .project-card,
+  .project-card::before,
+  .skill-pill,
+  .dock-btn,
+  .cta-button,
+  .cta-button::after {
+    transition: none !important;
+    transform: none !important;
   }
 }

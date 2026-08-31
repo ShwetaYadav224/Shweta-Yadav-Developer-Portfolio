@@ -12,8 +12,8 @@ import { profile } from "./config/portfolio";
 function App() {
   return (
     <ThemeProvider>
-      <main className="relative min-h-dvh pb-28">
-        <div className="mx-auto flex w-full max-w-2xl flex-col gap-14 px-4 pt-12 sm:pt-14 md:pt-16">
+      <main className="relative min-h-dvh pb-24">
+        <div className="mx-auto flex w-full max-w-4xl flex-col gap-8 px-5 py-12 sm:px-8 sm:py-16 lg:py-24">
           <Hero />
           <About />
           <Work />
@@ -22,13 +22,14 @@ function App() {
           <Projects />
           <Contact />
 
-          <footer className="pb-2 text-center text-xs text-muted-foreground">
+          <footer className="pt-4 text-center text-xs text-muted-foreground/60">
             © {new Date().getFullYear()} {profile.name}. Built with React &
             Tailwind CSS.
           </footer>
         </div>
+
+        <Navbar />
       </main>
-      <Navbar />
     </ThemeProvider>
   );
 }

@@ -75,63 +75,68 @@ export const work: Job[] = [
 export type School = {
   institution: string;
   degree: string;
-  logo: string;
+  logo?: string;
   start: string;
   end: string;
-  /** Optional institution link. Omit to render as plain (non-link) row. */
+  description?: string;
+  bullets?: string[];
   href?: string;
 };
 
 export const education: School[] = [
   {
-    institution: "Sanjay Ghodawat University, Kolhapur",
-    degree: "B.Tech — Computer Science & Engineering · CGPA 7.78/10",
-    logo: "SG",
-    start: "2022",
+    institution: "Sanjay Ghodawat University",
+    degree: "B.Tech · Computer Science & Engineering",
+    start: "2023",
     end: "2026",
-    // href: "https://www.sanjayghodawatuniversity.ac.in",
+    description: "Building a practical foundation in applied AI, machine learning, software engineering, and full-stack product development.",
+    bullets: ["Applied AI & ML", "Technical Head · Microsoft Learn Student Club", "Co-lead · Cubicles Tech Initiative"]
   },
   {
-    institution: "D. Y. Patil Polytechnic, Kasaba Bawada",
-    degree: "Diploma — Computer Engineering · 82.29%",
-    logo: "DP",
-    start: "2020",
+    institution: "Dr. D. Y. Patil Polytechnic",
+    degree: "Diploma · Computer Engineering",
+    start: "2021",
     end: "2023",
-    // href: "https://dypatil.edu.in",
+    description: "Developed core skills in programming, databases, computer systems, and software development through a project-focused curriculum.",
+    bullets: ["Programming fundamentals", "Android development", "Web development"]
   },
 ];
 
-/**
- * Skill names. Known names get their brand icon; unknown ones get a generic icon.
- * Add new icon mappings in src/sections/Skills.tsx (ICONS map).
- */
-export const skills: string[] = [
-  "React.js",
-  "Node.js",
-  "Express.js",
-  "MongoDB",
-  "JavaScript",
-  "AI APIs",
-  "LLM Integration",
-  "Computer Vision",
-  "Face Recognition",
-  "Python",
-  "Java",
-  "SQL",
-  "MySQL",
-  "Firebase",
-  "Tailwind CSS",
-  "HTML",
-  "CSS",
-  "Git",
-  "GitHub",
-  "REST APIs",
-  "Linux",
-  "Vite",
+export type SkillGroup = {
+  label: string;
+  items: string[];
+};
+
+export const skillGroups: SkillGroup[] = [
+  {
+    label: "Languages",
+    items: ["TypeScript", "JavaScript", "Python"],
+  },
+  {
+    label: "Frontend",
+    items: ["React", "Next.js", "Flutter"],
+  },
+  {
+    label: "Backend",
+    items: ["Django", "GraphQL", "FastAPI"],
+  },
+  {
+    label: "AI",
+    items: ["LLM applications", "LangChain", "Gemini"],
+  },
+  {
+    label: "Data",
+    items: ["PostgreSQL", "MongoDB", "Firebase"],
+  },
+  {
+    label: "Tools",
+    items: ["Git", "GitHub", "Linux"],
+  },
 ];
 
 export type Project = {
   title: string;
+  category?: string;
   description: string;
   date: string;
   technologies: string[];
@@ -144,6 +149,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Chillstream — Netflix Clone",
+    category: "Frontend • API integration",
     description:
       "A Netflix-inspired streaming UI that pulls rich catalogs, ratings, and trailers from the TMDB API, with smooth browsing and a polished, responsive experience.",
     date: "2025",
@@ -152,26 +158,39 @@ export const projects: Project[] = [
   },
   {
     title: "AetherBot — AI Chatbot",
+    category: "Full-stack engineering • AI integration",
     description:
       "An AI-powered chatbot with a clean web interface, wiring an LLM API into a full-stack app to deliver fast, natural, context-aware conversations.",
     date: "2025",
     technologies: ["React", "Node.js", "Express.js", "MongoDB", "LLM API"],
+    source: "https://github.com/ShwetaYadav224/AetherBot",
   },
   {
     title: "Smart Home Intrusion Detection System",
+    category: "Embedded systems • Computer Vision",
     description:
       "An IoT-based home security system that uses ESP32-CAM and motion/door sensors to detect intrusion events. Face recognition with RetinaFace and ArcFace is used to classify detected individuals as family or strangers, while a Django REST backend and Flutter application provide event monitoring, live streaming, and alerts.",
     date: "2025–2026",
     technologies: ["ESP32-CAM", "Arduino IDE", "RetinaFace", "ArcFace", "Python/Django REST Framework", "SQLite", "Flutter", "JWT", "MJPEG", "PIR Sensor", "Reed Switch"],
+    source: "https://github.com/ShwetaYadav224/Home-Intrusion-System",
   },
   {
     title: "FinPocket — Personal Finance & Expense Tracker",
+    category: "Frontend • Database integration",
     description:
       "A personal finance app to track expenses, visualize spending, and stay on budget — clean, fully responsive, and Firebase-backed.",
     date: "2026",
     technologies: ["React", "TypeScript", "Tailwind CSS", "Firebase"],
-    // live: "https://...",     // add when you have the deployed URL
-    // source: "https://github.com/ShwetaYadav224/...",  // add when ready
+    source: "https://github.com/ShwetaYadav224/FinPocket",
+  },
+  {
+    title: "FarmGenius",
+    category: "Full-stack engineering • AI and data integration",
+    description:
+      "A React and FastAPI prototype for crop-image analysis, yield estimation, market views, multilingual assistance, voice controls, and micro-farm planning.",
+    date: "2025",
+    technologies: ["React 19", "Python", "FastAPI"],
+    source: "https://github.com/SnoozeScript/FarmGenius",
   },
 ];
 

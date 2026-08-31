@@ -1,100 +1,78 @@
-import { FiArrowUpRight, FiGithub } from "react-icons/fi";
+import { FiArrowUpRight } from "react-icons/fi";
 import { Section } from "../components/Section";
 import { Reveal } from "../components/Reveal";
 import { projects } from "../config/portfolio";
-import type { Project } from "../config/portfolio";
-
-function Thumbnail({ project }: { project: Project }) {
-  if (project.image) {
-    return (
-      <img
-        src={project.image}
-        alt={project.title}
-        className="h-44 w-full object-cover"
-      />
-    );
-  }
-  // Clean placeholder until a real screenshot is provided.
-  return (
-    <div className="flex h-44 w-full items-center justify-center bg-linear-to-br from-muted to-secondary">
-      <span className="text-5xl font-bold text-muted-foreground/30">
-        {project.title.charAt(0)}
-      </span>
-    </div>
-  );
-}
 
 export function Projects() {
   return (
     <Section
       id="projects"
-      label="My Projects"
-      title="Check out my latest work"
-      subtitle="I've worked on a variety of projects, from simple websites to complex web applications. Here are a few of my favorites."
+      title="SELECTED PROJECTS"
+      showDivider={true}
     >
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {projects.map((p, i) => (
-          <Reveal key={p.title} delay={i * 0.05}>
-            <div className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-200 hover:ring-2 hover:ring-muted">
-              <Thumbnail project={p} />
-
-              <div className="flex flex-1 flex-col gap-3 p-4">
-                <div className="flex items-start justify-between gap-2">
-                  <div className="flex flex-col gap-0.5">
-                    <h3 className="font-semibold tracking-tight text-foreground">
-                      {p.title}
-                    </h3>
-                    <time className="text-xs text-muted-foreground">
-                      {p.date}
-                    </time>
-                  </div>
-
-                  <div className="flex items-center gap-1">
-                    {p.live && (
-                      <a
-                        href={p.live}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        aria-label={`Open ${p.title}`}
-                        title={`Open ${p.title}`}
-                        className="grid size-8 shrink-0 place-items-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                      >
-                        <FiArrowUpRight className="size-4" />
-                      </a>
-                    )}
-                    {p.source && (
-                      <a
-                        href={p.source}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        aria-label={`${p.title} source code`}
-                        title="Source code"
-                        className="grid size-8 shrink-0 place-items-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                      >
-                        <FiGithub className="size-4" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {p.description}
+      <div className="flex flex-col gap-1">
+        {projects.map((p, i) => {
+          const href = p.live || p.source;
+          const innerContent = (
+            <div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
+              {/* Left: title + meta */}
+              <div className="flex shrink-0 flex-col gap-1 sm:w-[240px]">
+                <h3 className="text-[16px] font-semibold text-foreground">
+                  {p.title}
+                </h3>
+                <p className="text-[12px] text-muted-foreground">
+                  {p.date}{p.category ? ` • ${p.category}` : ""}
                 </p>
+              </div>
 
-                <div className="mt-auto flex flex-wrap gap-1.5 pt-1">
-                  {p.technologies.map((t) => (
-                    <span
-                      key={t}
-                      className="inline-flex items-center rounded-md border border-border bg-muted/40 px-2 py-0.5 text-xs text-muted-foreground"
-                    >
-                      {t}
-                    </span>
-                  ))}
+              {/* Right: description + links */}
+              <div className="flex flex-1 relative gap-3">
+                <div className="flex-1 pb-1">
+                  <p className="text-[14px] leading-relaxed text-muted-foreground">
+                    {p.description}
+                  </p>
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {p.technologies.map((t) => (
+                      <span
+                        key={t}
+                        className="inline-flex items-center rounded-full bg-muted/50 px-3 py-1 text-[11px] text-muted-foreground transition-colors group-hover:bg-background"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
+
+                {/* Arrow icon permanently at top right */}
+                {href && (
+                  <div className="flex shrink-0 items-start justify-end w-6">
+                    <FiArrowUpRight className="size-[15px] text-muted-foreground/60 transition-colors group-hover:text-foreground" />
+                  </div>
+                )}
               </div>
             </div>
-          </Reveal>
-        ))}
+          );
+
+          return (
+            <Reveal key={p.title} delay={i * 0.05}>
+              {href ? (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="project-card group block py-6 sm:-mx-4 sm:px-4"
+                >
+                  {innerContent}
+                </a>
+              ) : (
+                <article className="project-card group py-6 sm:-mx-4 sm:px-4">
+                  {innerContent}
+                </article>
+              )}
+            </Reveal>
+          );
+        })}
       </div>
     </Section>
   );

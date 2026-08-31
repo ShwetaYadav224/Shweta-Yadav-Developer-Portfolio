@@ -4,67 +4,53 @@ import { Reveal } from "./Reveal";
 type SectionProps = {
   id: string;
   title: string;
-  /** Optional small label shown above the title (Projects / Contact). */
-  label?: string;
   subtitle?: string;
-  /** Extra node rendered at the right of the title row. */
   headerRight?: ReactNode;
+  titleClassName?: string;
   children: ReactNode;
   className?: string;
+  showDivider?: boolean;
 };
 
-/**
- * MagicUI-style section header.
- *  - plain sections: title + trailing gradient rule
- *  - labeled sections: small label + gradient rule, then larger title + subtitle
- */
 export function Section({
   id,
   title,
-  label,
   subtitle,
   headerRight,
+  titleClassName,
   children,
   className,
+  showDivider = true,
 }: SectionProps) {
   return (
     <section id={id} className="scroll-mt-24">
       <Reveal>
-        <div className="flex flex-col gap-2">
-          {label ? (
-            <>
-              <div className="flex items-center gap-3">
-                <span className="text-sm font-medium text-muted-foreground">
-                  {label}
-                </span>
-                <span className="h-px flex-1 bg-linear-to-r from-border to-transparent" />
-              </div>
-              <div className="flex flex-wrap items-center gap-4">
-                <h2 className="text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-                  {title}
-                </h2>
-                {headerRight}
-              </div>
-            </>
-          ) : (
-            <div className="flex items-center gap-4">
-              <h2 className="text-xl font-bold tracking-tight text-foreground">
-                {title}
-              </h2>
-              {headerRight}
-              <span className="h-px flex-1 bg-linear-to-r from-border to-transparent" />
-            </div>
-          )}
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center justify-between">
+            <h2
+              className={
+                titleClassName ??
+                "text-[13px] font-bold uppercase tracking-[0.05em] text-foreground"
+              }
+            >
+              {title}
+            </h2>
+            {headerRight}
+          </div>
 
           {subtitle && (
-            <p className="max-w-xl text-base leading-relaxed text-muted-foreground">
+            <p className="max-w-3xl text-[14px] leading-relaxed text-muted-foreground sm:text-[15px]">
               {subtitle}
             </p>
+          )}
+
+          {showDivider && (
+            <div className="mt-2 h-px w-full bg-border/60" />
           )}
         </div>
       </Reveal>
 
-      <div className={className ?? "mt-6"}>{children}</div>
+      <div className={className ?? "mt-8"}>{children}</div>
     </section>
   );
 }
