@@ -10,7 +10,7 @@ export function Work() {
           <Reveal key={job.company} delay={i * 0.05}>
             <article className="flex flex-col gap-4">
               <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                   <h3 className="text-[15px] font-bold text-foreground">
                     {job.company}
                   </h3>

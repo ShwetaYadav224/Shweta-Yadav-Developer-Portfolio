@@ -61,12 +61,12 @@ export function Projects() {
                   href={href}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="project-card group block py-6 sm:-mx-4 sm:px-4"
+                  className="project-card group block -mx-3 px-3 py-6 sm:-mx-4 sm:px-4"
                 >
                   {innerContent}
                 </a>
               ) : (
-                <article className="project-card group py-6 sm:-mx-4 sm:px-4">
+                <article className="project-card group -mx-3 px-3 py-6 sm:-mx-4 sm:px-4">
                   {innerContent}
                 </article>
               )}
