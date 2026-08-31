@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedinIn, FaEnvelope, FaLocationDot } from "react-icons/fa6";
+import { FaGithub, FaLinkedinIn, FaLocationDot } from "react-icons/fa6";
 import { FiMoon, FiSun } from "react-icons/fi";
 import { motion } from "motion/react";
 import { profile } from "../config/portfolio";
