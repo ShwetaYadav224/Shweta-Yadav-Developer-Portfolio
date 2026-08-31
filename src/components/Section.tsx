@@ -20,7 +20,7 @@ export function Section({
   titleClassName,
   children,
   className,
-  showDivider = true,
+  showDivider = false,
 }: SectionProps) {
   return (
     <section id={id} className="scroll-mt-24">
@@ -50,7 +50,7 @@ export function Section({
         </div>
       </Reveal>
 
-      <div className={className ?? "mt-8"}>{children}</div>
+      <div className={className ?? "mt-6"}>{children}</div>
     </section>
   );
 }

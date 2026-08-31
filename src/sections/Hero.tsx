@@ -47,10 +47,15 @@ export function Hero() {
                 <FaGithub className="size-3.5" />
                 <span>ShwetaYadav224</span>
               </a>
-              <span className="inline-flex cursor-default items-center gap-1.5 transition-colors duration-200 hover:text-foreground">
+              <a
+                href="https://www.linkedin.com/in/shweta-yadav-00b40328a"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="inline-flex items-center gap-1.5 transition-colors duration-200 hover:text-foreground"
+              >
                 <FaLinkedinIn className="size-3.5 text-[#0A66C2]" />
                 <span>LinkedIn</span>
-              </span>
+              </a>
               <button
                 type="button"
                 onClick={toggle}

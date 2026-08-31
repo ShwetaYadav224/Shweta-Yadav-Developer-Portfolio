@@ -8,7 +8,7 @@ export function About() {
         {about.paragraphs.map((p, i) => (
           <p
             key={i}
-            className="max-w-[85%] text-[14px] leading-relaxed text-muted-foreground sm:text-[14.5px]"
+            className="text-[14px] leading-relaxed text-muted-foreground sm:text-[14.5px]"
           >
             {p}
           </p>

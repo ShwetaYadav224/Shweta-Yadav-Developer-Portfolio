@@ -22,8 +22,7 @@ export const profile = {
 
 export const about = {
   paragraphs: [
-    "I'm a full-stack developer who builds fast, AI-powered web applications. I care about clean architecture, thoughtful UX, and shipping products that feel effortless to use.",
-    "From wiring LLMs into chatbots to building real-time computer-vision systems with face recognition, I like working where solid engineering meets real-world impact. I'm always learning, and I take pride in writing maintainable code that holds up.",
+    "I'm a full-stack developer who builds fast, AI-powered web applications. I care about clean architecture, thoughtful UX, and shipping products that feel effortless to use. From wiring LLMs into chatbots to building real-time computer-vision systems with face recognition, I like working where solid engineering meets real-world impact. I'm always learning, and I take pride in writing maintainable code that holds up.",
   ],
   facts: [
     { label: "Based in", value: "Maharashtra, India" },
@@ -90,7 +89,6 @@ export const education: School[] = [
     start: "2023",
     end: "2026",
     description: "Building a practical foundation in applied AI, machine learning, software engineering, and full-stack product development.",
-    bullets: ["Applied AI & ML", "Technical Head · Microsoft Learn Student Club", "Co-lead · Cubicles Tech Initiative"]
   },
   {
     institution: "Dr. D. Y. Patil Polytechnic",
