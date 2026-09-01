@@ -61,13 +61,13 @@ export type Job = {
 export const work: Job[] = [
   {
     company: "Anthaathi Private Limited",
-    role: "Web Development Intern",
+    role: "Software Developer Intern",
     logo: "AN",
-    start: "Dec 2025",
-    end: "Jun 2026",
+    start: "Jan 2026",
+    end: "Present",
     description:
-      "Worked on web development tasks and built responsive, accessible web interfaces across multiple projects.",
-    technologies: ["HTML", "CSS", "JavaScript"],
+      "Contributing to production software across web, mobile, and backend — building features, fixing bugs, and shipping reliable code in a fast-paced team.",
+    technologies: ["Python", "Django", "GraphQL", "React", "Next.js", "Flutter", "Bun"],
   },
 ];
 
@@ -118,10 +118,7 @@ export const skillGroups: SkillGroup[] = [
     label: "Backend",
     items: ["Django", "GraphQL", "FastAPI"],
   },
-  {
-    label: "AI",
-    items: ["LLM applications", "LangChain", "Gemini"],
-  },
+
   {
     label: "Data",
     items: ["PostgreSQL", "MongoDB", "Firebase"],
